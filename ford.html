@@ -72,7 +72,6 @@
         </div>
     </div>
 
-    <!-- fourth section -->
     <div class="grid grid-cols-4">
         <div class="col-span-3 text-center">
             <div class="text-3xl text-gray-700 font-light mb-6 justify-center">
@@ -81,12 +80,13 @@
             <div class="text-lg text-gray-600">
                 The latest technology, news and vehicles.
             </div>
+    <!-- flexbox grid section -->
         </div>
-        <a href="#" v-for="section in gridSection">
-            <div class="overflow-hidden">
+        <a href="#" v-for="section in gridSection" class="relative">
+            <div class="overflow-hidden bg-blue-500">
                 <img :src="section.imageLocation" :alt="section.title" class="ease-in-out transition transform transition-transform duration-300 hover:scale-110">
             </div>
-                <div class="bg-teal-700 bg-opacity-75 py-2 px-2 text-teal-100 text-sm" :class="section.class">
+                <div class="bg-blue-700 bg-opacity-75 py-2 px-2 text-teal-100 text-sm font-light" :class="section.class">
                 {{section.heading}}
             </div>
         </a>
