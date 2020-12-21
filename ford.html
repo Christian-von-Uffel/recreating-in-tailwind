@@ -44,7 +44,7 @@
     <!-- second section -->
     <div v-for="section in secondSection" class="">
         <div class="mt-12 text-center">
-            <div class="text-5xl font-light text-blue-900">
+            <div class="text-3xl md:text-5xl font-light text-blue-900">
                 {{section.heading}}
             </div>
             <div class="text-lg font-light text-blue-800 mb-8">
@@ -55,13 +55,13 @@
         <img :src="section.imageLocation" :alt="section.title">
     </div>
 
-    <!-- third section -->
-    <div v-for="section in thirdSection" class="">
+    <!-- holiday section -->
+    <div v-for="section in holidaySection" class="">
         <div class="mt-32 text-center absolute">
         </div>
         <img :src="section.imageLocation" :alt="section.title">
         <div class="bg-green-700 h-56 mx-auto text-center">
-            <div class="pt-6 text-3xl uppercase font-normal text-white mb-8">
+            <div class="pt-6 text-xl md:text-3xl uppercase font-normal text-white mb-8">
                 {{section.subheading}}
             </div>
             <button class="text-white mt-4 px-12 py-2 text-white hover:text-green-600 hover:bg-white border hover:border-white capitalize">{{section.cta}}</button>
@@ -82,7 +82,7 @@
                 The latest technology, news and vehicles.
             </div>
         </div>
-        <a href="#" v-for="section in fourthSection" class="overflow-hidden">
+        <a href="#" v-for="section in gridSection" class="overflow-hidden">
             <img :src="section.imageLocation" :alt="section.title" class="ease-in-out transition transform transition-transform duration-300 hover:scale-110">
             <div class="bg-teal-700 bg-opacity-75 py-2 px-2 text-teal-100 text-sm" :class="section.class">
                 {{section.heading}}
@@ -93,15 +93,15 @@
     <!-- website search bar -->
     <div class="flex justify-between items-center px-12 bg-gray-800 py-8">
         <div>
-            <input type="text" placeholder="search" class="text-2xl text-white uppercase bg-transparent">
+            <input type="text" placeholder="search" class="text-2xl text-white px-2 active:border-none uppercase bg-transparent">
         </div>
         <div class="flex gap-3 capitalize">
-            <a href="#" v-for="nav in navSearch" class="font-light text-gray-500 hover:text-white">{{nav}}</a>
+            <a href="#" v-for="nav in navBarFooter" class="font-light text-gray-500 hover:text-white">{{nav}}</a>
         </div>
     </div>
 
     <!-- footer -->
-    <div class="grid grid-cols-5 bg-gray-900">
+    <div class="grid grid-cols-3 md:grid-cols-5 bg-gray-900">
         <div v-for="n in 5" class="font-light py-8 px-12 capitalize">
             <div class="text-white mb-6">
                 Footer header {{n}}
@@ -156,7 +156,7 @@
                     imageLocation: "images/second-section.webp",
                 },
             ],
-            thirdSection: [
+            holidaySection: [
                 {
                     heading: "Built for the Holidays Final Days",
                     subheading: "We're bringing joy with Holiday deals on America's best selling brand.",
@@ -164,34 +164,34 @@
                     imageLocation: "images/holiday-image-banner.webp",
                 },
             ],
-            fourthSection: [
+            gridSection: [
                 {
                     heading: "Which fuel choice is right for you?",
                     imageLocation: "images/section4-image1.webp",
                 },
                 {
-                    heading: "Which fuel choice is right for you?",
+                    heading: "The 2021 F-150 Tremor",
                     imageLocation: "images/section4-image2.jpg",
                     class: "col-span-2 row-span-2"
                 },
                 {
-                    heading: "Which fuel choice is right for you?",
+                    heading: "The All New 2022 E-Transit",
                     imageLocation: "images/section4-image3.webp",
                 },
                 {
-                    heading: "Which fuel choice is right for you?",
+                    heading: "FordPass™ Rewards Visa® Card",
                     imageLocation: "images/section4-image4.webp",
                 },
                 {
-                    heading: "Which fuel choice is right for you?",
+                    heading: "Learn more",
                     imageLocation: "images/section4-image5.webp",
                 },
                 {
-                    heading: "Which fuel choice is right for you?",
+                    heading: "COVID-19 Assistance",
                     imageLocation: "images/section4-image6.webp",
                 },
             ],
-            navSearch:[
+            navBarFooter:[
                 "popular",
                 "electric vehicles",
                 "ranger",
