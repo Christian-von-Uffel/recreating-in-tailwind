@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <!-- footer -->
+    <!-- site map footer -->
     <div class="grid grid-cols-3 md:grid-cols-5 bg-gray-900">
         <div v-for="n in 5" class="font-light py-8 px-12 capitalize">
             <div class="text-white mb-6">
@@ -118,6 +118,19 @@
                 <div>footer link 9</div>
                 <div>footer link 10</div>
             </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="px-12 py-12">
+
+        <div>
+            Ford
+        </div>
+        <div class="flex justify-between font-light text-sm text-gray-600 capitalize">
+            <a href="#" v-for="n in 10" class="hover:text-gray-700">
+                footer link {{n}}
+            </a>
         </div>
     </div>
 </div>
