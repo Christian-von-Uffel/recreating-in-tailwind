@@ -82,9 +82,11 @@
                 The latest technology, news and vehicles.
             </div>
         </div>
-        <a href="#" v-for="section in gridSection" class="overflow-hidden">
-            <img :src="section.imageLocation" :alt="section.title" class="ease-in-out transition transform transition-transform duration-300 hover:scale-110">
-            <div class="bg-teal-700 bg-opacity-75 py-2 px-2 text-teal-100 text-sm" :class="section.class">
+        <a href="#" v-for="section in gridSection">
+            <div class="overflow-hidden">
+                <img :src="section.imageLocation" :alt="section.title" class="ease-in-out transition transform transition-transform duration-300 hover:scale-110">
+            </div>
+                <div class="bg-teal-700 bg-opacity-75 py-2 px-2 text-teal-100 text-sm" :class="section.class">
                 {{section.heading}}
             </div>
         </a>
