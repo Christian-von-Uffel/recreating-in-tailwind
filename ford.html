@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford's Website Recreated in Tailwind</title>
+</head>
+<body>
+    <div id="app">
+        <div class="sticky top-0 z-10">
+            <!-- top header -->
+            <div class="bg-gray-200 flex justify-between mx-auto py-3 px-12 text-sm text-blue-800 font-medium">
+                <a href="#">Bronco</a>
+                <a href="#">&#xf3c5; Find Dealership Locations</a>
+            </div>
+            <!-- top nav -->
+            <div class="flex justify-between bg-white text-blue-700 uppercase px-12 py-6 shadow-lg">
+                <div class="flex gap-6 font-medium text-sm">
+                    <div class="h-4 w-auto">
+                        <img src="images/bronco.svg" alt="">
+                    </div>
+                    <a v-for="nav in navLeft" href="#">{{nav}}</a>
+                </div>
+                <div class="flex gap-4 font-medium text-xs">
+                    <a v-for="nav in navRight" href="#">{{nav}}</a>
+                </div>
+            </div>
+        </div>
+    <!-- main section gallery -->
+    <div v-for="section in mainSection" class="relative w-full h-screen items-center overflow-hidden">
+        <div class="absolute ml-16 mt-24 max-w-sm bg-gradient-to-r from-gray-200 to-gray-100">
+            <div class="text-4xl text-blue-800">
+                {{section.heading}}
+            </div>
+            <div class="text-lg text-blue-800">
+                {{section.subheading}}
+            </div>
+            <button class="bg-blue-600 hover:bg-white mt-4 px-12 py-2 text-white hover:text-blue-900 border hover:border-gray-600 capitalize">{{section.cta}}</button>
+        </div>
+        <img :src="section.imageLocation" :alt="section.title">
+    </div>
+
+    <!-- second section -->
+    <div v-for="section in secondSection" class="">
+        <div class="mt-12 text-center">
+            <div class="text-5xl font-light text-blue-900">
+                {{section.heading}}
+            </div>
+            <div class="text-lg font-light text-blue-800 mb-8">
+                {{section.subheading}}
+            </div>
+            <button class="bg-blue-600 hover:bg-white mt-4 px-12 py-2 text-white hover:text-blue-800 border hover:border-gray-600 capitalize">{{section.cta}}</button>
+        </div>
+        <img :src="section.imageLocation" :alt="section.title">
+    </div>
+
+    <!-- third section -->
+    <div v-for="section in thirdSection" class="">
+        <div class="mt-32 text-center absolute">
+        </div>
+        <img :src="section.imageLocation" :alt="section.title">
+        <div class="bg-green-700 h-56 mx-auto text-center">
+            <div class="pt-6 text-3xl uppercase font-normal text-white mb-8">
+                {{section.subheading}}
+            </div>
+            <button class="text-white mt-4 px-12 py-2 text-white hover:text-green-600 hover:bg-white border hover:border-white capitalize">{{section.cta}}</button>
+        </div>
+        <div class="bg-gradient-to-t from-red-700 to-green-700 h-3">
+        </div>
+        <div class="bg-red-700 h-3">
+        </div>
+    </div>
+
+    <!-- fourth section -->
+    <div class="grid grid-cols-4">
+        <div class="col-span-3 text-center">
+            <div class="text-3xl text-gray-700 font-light mb-6 justify-center">
+                What's happening at Ford
+            </div>
+            <div class="text-lg text-gray-600">
+                The latest technology, news and vehicles.
+            </div>
+        </div>
+        <a href="#" v-for="section in fourthSection" class="overflow-hidden">
+            <img :src="section.imageLocation" :alt="section.title" class="ease-in-out transition transform transition-transform duration-300 hover:scale-110">
+            <div class="bg-teal-700 bg-opacity-75 py-2 px-2 text-teal-100 text-sm" :class="section.class">
+                {{section.heading}}
+            </div>
+        </a>
+    </div>
+
+    <!-- website search bar -->
+    <div class="flex justify-between items-center px-12 bg-gray-800 py-8">
+        <div>
+            <input type="text" placeholder="search" class="text-2xl text-white uppercase bg-transparent">
+        </div>
+        <div class="flex gap-3 capitalize">
+            <a href="#" v-for="nav in navSearch" class="font-light text-gray-500 hover:text-white">{{nav}}</a>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="grid grid-cols-5 bg-gray-900">
+        <div v-for="n in 5" class="font-light py-8 px-12 capitalize">
+            <div class="text-white mb-6">
+                Footer header {{n}}
+            </div>
+            <div class="text-gray-600">
+                <div>footer link 1</div>
+                <div>footer link 2</div>
+                <div>footer link 3</div>
+                <div>footer link 4</div>
+                <div>footer link 5</div>
+                <div>footer link 6</div>
+                <div>footer link 7</div>
+                <div>footer link 8</div>
+                <div>footer link 9</div>
+                <div>footer link 10</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data: {
+            navLeft:[
+                "Suvs & crossovers",
+                "Trucks & Vans",
+                "electrified",
+                "cars",
+                "all vehicles",
+            ],
+            navRight:[
+                "My account",
+                "Finance",
+                "Support",
+                "En",
+            ],
+            mainSection: [
+                {
+                    heading: "Built for America",
+                    subheading: "As our country gets back to business, we're glad to have never stopped",
+                    cta: "Learn More",
+                    imageLocation: "images/ford-truck-unsplash.jpg",
+                },
+            ],
+            secondSection: [
+                {
+                    heading: "Something for Everyone",
+                    subheading: "See our full lineup of vehicles and find the one that best fits you.",
+                    cta: "All vehicles",
+                    imageLocation: "images/second-section.webp",
+                },
+            ],
+            thirdSection: [
+                {
+                    heading: "Built for the Holidays Final Days",
+                    subheading: "We're bringing joy with Holiday deals on America's best selling brand.",
+                    cta: "view offers",
+                    imageLocation: "images/holiday-image-banner.webp",
+                },
+            ],
+            fourthSection: [
+                {
+                    heading: "Which fuel choice is right for you?",
+                    imageLocation: "images/section4-image1.webp",
+                },
+                {
+                    heading: "Which fuel choice is right for you?",
+                    imageLocation: "images/section4-image2.jpg",
+                    class: "col-span-2 row-span-2"
+                },
+                {
+                    heading: "Which fuel choice is right for you?",
+                    imageLocation: "images/section4-image3.webp",
+                },
+                {
+                    heading: "Which fuel choice is right for you?",
+                    imageLocation: "images/section4-image4.webp",
+                },
+                {
+                    heading: "Which fuel choice is right for you?",
+                    imageLocation: "images/section4-image5.webp",
+                },
+                {
+                    heading: "Which fuel choice is right for you?",
+                    imageLocation: "images/section4-image6.webp",
+                },
+            ],
+            navSearch:[
+                "popular",
+                "electric vehicles",
+                "ranger",
+                "explorer",
+            ],
+        }
+    })
+</script>
+</html>
