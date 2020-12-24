@@ -15,9 +15,9 @@
         </div>
         
         <!-- websites recreated using tailwind -->
-        <div class="max-w-3xl mx-auto grid grid-cols-2 gap-3 mb-12">
+        <div class="max-w-3xl mx-4 md:mx-auto grid md:grid-cols-2 gap-3 mb-12">
             <a v-for="website in websites" :href="website.link" class="flex items-center justify-center border rounded shadow hover:shadow-lg transition duration-150 p-2 bg-white">
-                <img :src="website.websitePreviewImage" alt="website.title">
+                <img :src="website.websitePreviewImage" alt="website.title" class="h-32">
             </a>
         </div>
     </div>
@@ -30,20 +30,25 @@
             websites:[
                 {
                     title: "Ford",
-                    link: "/ford",
+                    link: "/ford.html",
                     websitePreviewImage: "images/1024px-Ford_Motor_Company_Logo.svg.png",
                 },
                 {
                     title: "Venmo",
-                    link: "/venmo",
+                    link: "/venmo.html",
                     websitePreviewImage: "images/venmo_logo_blue.svg",
                 },
                 {
                     title: "Notion",
-                    link: "/notion",
-                    websitePreviewImage: "images/Notion_App_Logo.png",
+                    link: "/notion.html",
+                    websitePreviewImage: "images/notion/Notion_App_Logo.png",
                 },
             ]
+        },
+        computed:{
+            thisLocation(){
+                return window.location.href
+            }
         }
     })
 </script>

@@ -10,7 +10,7 @@
     <div id="app">
 
         <!-- top nav -->
-        <div class="flex justify-between items-center mx-8 my-6">
+        <div class="flex justify-between items-center mx-6 my-6">
             <div class="flex gap-3 items-center">
                 <div class="h-8 w-8">
                     <img :src="website.logo" alt="website.title">
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <!-- headline section -->
+        <!-- hero section -->
         <div class="">
             <div class="w-2/5 mx-auto mt-16">
                 <img :src="heroSection.imageLocation" :alt="heroSection.headline">
@@ -40,12 +40,47 @@
                 </div>
                 <form action="">
                     <input type="text" :placeholder="website.ctaPlaceholder" class="border rounded px-2 py-1">
-                    <button type="submit" class="bg-red-600 text-white border border-red-700 rounded px-3 py-1">
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white hover:text-gray-100 border border-red-700 rounded px-3 py-1">
                         {{website.cta}}
                     </button>
                 </form>
             </div>
         </div>
+
+        <!-- general usecases section -->
+        <div class="bg-orange-100 bg-opacity-50 mx-16 mt-12 py-6 rounded">
+            <div class="flex justify-center">
+                <div v-for="useCase in useCases" class="rounded px-3 py-1 my-6 hover:bg-orange-200 font-medium cursor-pointer">
+                    {{useCase.title}}
+                </div>
+            </div>
+            <div class="w-4/5 mx-auto rounded shadow-lg overflow-hidden">
+                <img src="images/notion/team-wiki.png" alt="Team Wiki" class="mx-auto">
+            </div>
+        </div>
+
+        <!-- company usecases section -->
+        <div class="my-8">
+            <div class="text-center tracking-wide my-8">
+                <div class="text-4xl font-bold">
+                    Built to Empower Every Team
+                </div>
+                <div class="text-xl font-light text-gray-700">
+                    Notion solves problems unique to every function.
+                </div>
+            </div>
+            <div class="grid grid-cols-3 mx-20 text-center">
+                <div v-for="companyUsecase in companyUsecases">
+                    <div class="bg-white">
+                        <img :src="companyUsecase.artwork" :alt="companyUsecase.title">
+                    </div>
+                    <div class="font-bold text-xl">
+                        {{companyUsecase.title}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -55,7 +90,7 @@
         data:{
             website:{
                 title:"Notion",
-                logo:"images/Notion_App_Logo.png",
+                logo:"images/notion/Notion_App_Logo.png",
                 cta: "Sign up", 
                 ctaPlaceholder: "Enter your email...", 
             },
@@ -80,10 +115,56 @@
                 },
             ],
             heroSection: {
-                imageLocation: "images/hero.png",
+                imageLocation: "images/notion/hero.png",
                 headline: "All-in-one workspace", 
                 subheader: "One tool for your whole team. Write, plan, and get organized.", 
             },
+            useCases:[
+                {
+                    title: "Team Wiki",
+                    image: "images/notion/team-wiki.png",
+                },
+                {
+                    title: "Project Tasks",
+                    image: "images/notion/projects-tasks.png",
+                },
+                {
+                    title: "Notes & Docs",
+                    image: "images/notion/notes-and-docs.png",
+                },
+            ],
+            companyUsecases:[
+                {
+                    title:"Product",
+                    description:"",
+                    artwork:"images/notion/product.png",
+                },
+                {
+                    title:"Engineering",
+                    description:"",
+                    artwork:"images/notion/engineering.png",
+                },
+                {
+                    title:"HR",
+                    description:"",
+                    artwork:"images/notion/hr.png",
+                },
+                {
+                    title:"Design",
+                    description:"",
+                    artwork:"images/notion/design.png",
+                },
+                {
+                    title:"Sales",
+                    description:"",
+                    artwork:"images/notion/sales.png",
+                },
+                {
+                    title:"Marketing",
+                    description:"",
+                    artwork:"images/notion/marketing.png",
+                },
+            ],
         }
     })
 </script>
