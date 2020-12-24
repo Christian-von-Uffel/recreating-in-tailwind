@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion's Website Recreated Using Tailwind CSS</title>
+</head>
+<body>
+    <div id="app">
+
+        <!-- top nav -->
+        <div class="flex justify-between items-center mx-8 my-6">
+            <div class="flex gap-3 items-center">
+                <div class="h-8 w-8">
+                    <img :src="website.logo" alt="website.title">
+                </div>
+                <div class="font-medium">
+                    Notion
+                </div>
+            </div>
+            <div class="flex gap-4 font-medium capitalize">
+                <div v-for="nav in topNav" class="rounded-sm py-1 px-2 hover:bg-gray-200">
+                    {{nav.title}}
+                </div>
+            </div>
+        </div>
+
+        <!-- headline section -->
+        <div class="">
+            <div class="w-2/5 mx-auto mt-16">
+                <img :src="heroSection.imageLocation" :alt="heroSection.headline">
+            </div>
+            <div class="text-center">
+                <div class="text-6xl font-bold">
+                    {{heroSection.headline}}
+                </div>
+                <div class="text-xl text-gray-600 font-light tracking-wide mb-4">
+                    {{heroSection.subheader}}
+                </div>
+                <form action="">
+                    <input type="text" :placeholder="website.ctaPlaceholder" class="border rounded px-2 py-1">
+                    <button type="submit" class="bg-red-600 text-white border border-red-700 rounded px-3 py-1">
+                        {{website.cta}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            website:{
+                title:"Notion",
+                logo:"images/Notion_App_Logo.png",
+                cta: "Sign up", 
+                ctaPlaceholder: "Enter your email...", 
+            },
+            topNav:[
+                {
+                    title: "product",
+                },
+                {
+                    title: "resources",
+                },
+                {
+                    title: "pricing",
+                },
+                {
+                    title: "careers",
+                },
+                {
+                    title: "Login",
+                },
+                {
+                    title: "Sign Up",
+                },
+            ],
+            heroSection: {
+                imageLocation: "images/hero.png",
+                headline: "All-in-one workspace", 
+                subheader: "One tool for your whole team. Write, plan, and get organized.", 
+            },
+        }
+    })
+</script>
+</html>
