@@ -26,80 +26,109 @@
             </div>
         </div>
 
-        <!-- hero section -->
-        <div class="">
-            <div class="w-2/5 mx-auto mt-16">
-                <img :src="heroSection.imageLocation" :alt="heroSection.headline">
-            </div>
-            <div class="text-center">
-                <div class="text-6xl font-bold">
-                    {{heroSection.headline}}
         <!-- content wrapper -->
         <div class="max-w-screen-lg mx-auto">
-                </div>
-                <div class="text-xl text-gray-600 font-light tracking-wide mb-4">
-                    {{heroSection.subheader}}
-                </div>
-                <form action="">
-                    <input type="text" :placeholder="website.ctaPlaceholder" class="border rounded px-2 py-1">
-                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white hover:text-gray-100 border border-red-700 rounded px-3 py-1">
-                        {{website.cta}}
-                    </button>
-                </form>
-            </div>
-        </div>
 
-        <!-- general usecases section -->
-        <div class="bg-orange-100 bg-opacity-50 mx-16 mt-12 py-6 rounded">
-            <div class="flex justify-center">
-                <div v-for="useCase in useCases" class="rounded px-3 py-1 my-6 hover:bg-orange-200 font-medium cursor-pointer">
-                    {{useCase.title}}
+            
+            <!-- hero section -->
+            <div class="">
+                <div >
+                    <img :src="heroSection.imageLocation" :alt="heroSection.headline" class="w-1/2 mx-auto mt-16">
                 </div>
-            </div>
-            <div class="w-4/5 mx-auto rounded shadow-lg overflow-hidden">
-                <img src="images/notion/team-wiki.png" alt="Team Wiki" class="mx-auto">
-            </div>
-        </div>
-
-        <!-- company usecases section -->
-        <div class="my-8">
-            <div class="text-center tracking-wide my-8">
-                <div class="text-4xl font-bold">
-                    Built to Empower Every Team
-                </div>
-                <div class="text-xl font-light text-gray-700">
-                    Notion solves problems unique to every function.
-                </div>
-            </div>
-            <div class="grid grid-cols-3 mx-20 text-center">
-                <div v-for="companyUsecase in companyUsecases">
-                    <div class="bg-white">
-                        <img :src="companyUsecase.artwork" :alt="companyUsecase.title">
+                <div class="text-center">
+                    <div class="text-6xl font-bold">
+                        {{heroSection.headline}}
                     </div>
-                    <div class="font-bold text-xl">
-                        {{companyUsecase.title}}
+                    <div class="text-xl text-gray-600 font-light tracking-wide mb-4">
+                        {{heroSection.subheader}}
+                    </div>
+                    <form action="">
+                        <input type="text" :placeholder="website.ctaPlaceholder" class="border rounded px-2 py-1">
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white hover:text-gray-100 border border-red-700 rounded px-3 py-1">
+                            {{website.cta}}
+                        </button>
+                    </form>
+                    <div class="text-sm text-gray-500 my-3">
+                        For teams & individuals — web, mobile, Mac, Windows.
                     </div>
                 </div>
             </div>
+            
+            <!-- general usecases section -->
+            <div class="bg-orange-100 bg-opacity-50 mx-16 mt-12 py-6 rounded">
+                <div class="flex justify-center">
+                    <div v-for="useCase in useCases" class="rounded px-3 py-1 my-6 hover:bg-orange-200 font-medium cursor-pointer">
+                        {{useCase.title}}
+                    </div>
+                </div>
+                <div class="w-4/5 mx-auto rounded shadow-lg overflow-hidden">
+                    <img src="images/notion/team-wiki.png" alt="Team Wiki" class="mx-auto">
+                </div>
+            </div>
+            
+            <!-- company usecases section -->
+            <div class="my-24">
+                <div class="text-center tracking-wide my-8">
+                    <div class="text-4xl font-bold">
+                        Built to Empower Every Team
+                    </div>
+                    <div class="text-xl font-light text-gray-700">
+                        Notion solves problems unique to every function.
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-6 my-16 text-center">
+                    <div v-for="companyUsecase in companyUsecases">
+                        <div class="bg-white">
+                            <img :src="companyUsecase.artwork" :alt="companyUsecase.title" class="h-32 object-cover m-auto p-3">
+                        </div>
+                        <div class="font-bold text-xl">
+                            {{companyUsecase.title}}
+                        </div>
+                        <div v-for="usecase in companyUsecase">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- testimonials section -->
+            <div class="grid md:grid-cols-3 gap-4 mx-auto">
+                <a href="#" v-for="testimonial in testimonials" class="bg-orange-100 rounded-lg border border-orange-100 hover:border-gray-300 p-4 flex flex-col space-between items-start">
+                    <img :src="testimonial.companyLogo" alt="" class="h-12 object-contain overflow-hidden">
+                    <div class="text-lg my-6 h-full">
+                        "{{testimonial.content.trim()}}"
+                    </div>
+                    <div class="text-sm flex">
+                        {{testimonial.source}}
+                    </div>
+                    <div class="text-sm text-gray-700 capitalize">
+                        {{testimonial.sourceTitle}}
+                    </div>
+                </a>
+            </div>
+            
         </div>
 
     <!-- content wrapper -->
     </div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-    const app = new Vue({
-        el:"#app",
-        data:{
-            website:{
-                title:"Notion",
-                logo:"images/notion/Notion_App_Logo.png",
-                cta: "Sign up", 
-                ctaPlaceholder: "Enter your email...", 
-            },
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                website:{
+                    title:"Notion",
+                    logo:"images/notion/Notion_App_Logo.png",
+                    cta: "Sign up", 
+                    ctaPlaceholder: "Enter your email...", 
+                },
             topNav:[
                 {
                     title: "product",
+                },
+                {
+                    title: "download",
                 },
                 {
                     title: "resources",
