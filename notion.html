@@ -10,54 +10,63 @@
     <div id="app">
 
         <!-- top nav -->
-        <div class="flex justify-between items-center mx-6 my-6">
+        <div class="flex justify-between items-center px-6 my-3 py-3 text-gray-800 bg-white sticky top-0 border-b transition duration-150">
             <div class="flex gap-3 items-center">
                 <div class="h-8 w-8">
-                    <img :src="website.logo" alt="website.title">
+                    <img :src="website.logo" :alt="website.title">
                 </div>
                 <div class="font-medium">
-                    Notion
+                    {{website.title}}
                 </div>
             </div>
-            <div class="flex gap-4 font-medium capitalize">
-                <div v-for="nav in topNav" class="rounded-sm py-1 px-2 hover:bg-gray-200">
+            <div class="flex gap-4 font-medium capitalize items-center">
+                <a href="#" v-for="nav in topNav" class="rounded-sm py-1 px-2 hover:bg-gray-200">
                     {{nav.title}}
+                </a>
+                <div class="text-gray-400 font-light">
+                    |
+                </div>
+                <div>
+                    Log in
+                </div>
+                <div>
+                    Sign up
                 </div>
             </div>
         </div>
 
         <!-- content wrapper -->
-        <div class="max-w-screen-lg mx-auto">
+        <div class="max-w-screen-xl mx-auto">
 
-            
+
             <!-- hero section -->
             <div class="">
                 <div >
-                    <img :src="heroSection.imageLocation" :alt="heroSection.headline" class="w-1/2 mx-auto mt-16">
+                    <img :src="heroSection.imageLocation" :alt="heroSection.headline" class="w-2/5 mx-auto mt-16 px-2">
                 </div>
                 <div class="text-center">
                     <div class="text-6xl font-bold">
                         {{heroSection.headline}}
                     </div>
-                    <div class="text-xl text-gray-600 font-light tracking-wide mb-4">
+                    <div class="text-xl text-gray-700 antialiased tracking-wide mb-4">
                         {{heroSection.subheader}}
                     </div>
                     <form action="">
-                        <input type="text" :placeholder="website.ctaPlaceholder" class="border rounded px-2 py-1">
-                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white hover:text-gray-100 border border-red-700 rounded px-3 py-1">
+                        <input type="text" :placeholder="website.ctaPlaceholder" class="border rounded px-2 py-1 placeholder-gray-700 font-light">
+                        <button type="submit.prevent" class="bg-red-600 hover:bg-red-700 text-red-100 font-medium hover:text-gray-100 antialiased border border-red-700 rounded px-3 py-1">
                             {{website.cta}}
                         </button>
                     </form>
-                    <div class="text-sm text-gray-500 my-3">
+                    <div class="text-sm text-gray-600 antialiased my-3">
                         For teams & individuals — web, mobile, Mac, Windows.
                     </div>
                 </div>
             </div>
             
             <!-- general usecases section -->
-            <div class="bg-orange-100 bg-opacity-50 mx-16 mt-12 py-6 rounded">
+            <div class="bg-orange-200 bg-opacity-50 mx-16 mt-12 py-6 rounded">
                 <div class="flex justify-center">
-                    <div v-for="useCase in useCases" class="rounded px-3 py-1 my-6 hover:bg-orange-200 font-medium cursor-pointer">
+                    <div v-for="useCase in useCases" class="rounded px-3 py-2 my-6 hover:bg-orange-200 font-medium cursor-pointer">
                         {{useCase.title}}
                     </div>
                 </div>
@@ -65,15 +74,16 @@
                     <img src="images/notion/team-wiki.png" alt="Team Wiki" class="mx-auto">
                 </div>
             </div>
+            <img src="images/notion/logo-strip-desktop-v1.png" alt="" class="w-4/5 mx-auto my-10">
             
             <!-- company usecases section -->
-            <div class="my-24">
+            <div class="my-32">
                 <div class="text-center tracking-wide my-8">
                     <div class="text-4xl font-bold">
-                        Built to Empower Every Team
+                        {{companyUsecaseHeader.headline}}
                     </div>
                     <div class="text-xl font-light text-gray-700">
-                        Notion solves problems unique to every function.
+                        {{companyUsecaseHeader.subheader}}
                     </div>
                 </div>
                 <div class="grid grid-cols-3 gap-6 my-16 text-center">
@@ -109,9 +119,9 @@
             </div>
             
             <!-- testimonials section -->
-            <div class="grid md:grid-cols-3 gap-4 mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-16 p-16 mx-auto">
                 <a href="#" v-for="testimonial in testimonials" class="bg-orange-100 rounded-lg border border-orange-100 hover:border-gray-300 p-4 flex flex-col space-between items-start">
-                    <img :src="testimonial.companyLogo" alt="" class="h-12 object-contain overflow-hidden">
+                    <img :src="testimonial.companyLogo" :alt="testimonial.sourceTitle" class="h-12 object-contain object-left overflow-hidden">
                     <div class="text-lg my-6 h-full">
                         "{{testimonial.content.trim()}}"
                     </div>
@@ -156,12 +166,6 @@
                 {
                     title: "careers",
                 },
-                {
-                    title: "Login",
-                },
-                {
-                    title: "Sign Up",
-                },
             ],
             heroSection: {
                 imageLocation: "images/notion/hero.png",
@@ -170,18 +174,22 @@
             },
             useCases:[
                 {
-                    title: "Team Wiki",
+                    title: "📘 Team Wiki",
                     image: "images/notion/team-wiki.png",
                 },
                 {
-                    title: "Project Tasks",
+                    title: "🎒 Project Tasks",
                     image: "images/notion/projects-tasks.png",
                 },
                 {
-                    title: "Notes & Docs",
+                    title: "✍️ Notes & Docs",
                     image: "images/notion/notes-and-docs.png",
                 },
             ],
+            companyUsecaseHeader:{
+                headline: "Built to empower every team", 
+                subheader: "Notion solves problems unique to every function.", 
+            },
             companyUsecases:[
                 {
                     title:"Product",
@@ -244,6 +252,11 @@
                     ],
                 },
             ],
+            testimonialHeader:{
+                image:"images/notion/templates.png",
+                headline:"Trusted by teams of 20 to 2,000",
+                subheader:"Our Customers range from startups to Fortune 500 companies.",
+            },
             testimonials:[
                 {
                     companyLogo:"images/notion/blinkist.png",
@@ -264,7 +277,7 @@
                     sourceTitle:"product manager, duolingo",
                 },
             ]
-        }
+        },
     })
 </script>
 </html>
