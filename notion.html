@@ -90,6 +90,23 @@
                     </div>
                 </div>
             </div>
+
+            <!-- testimonial header section -->
+            <img :src="testimonialHeader.image" :alt="testimonialHeader.image" class="max-w-xl mx-auto object-contain">
+            <div class="text-center">
+                <div class="text-4xl mt-6 mb-2 font-bold">
+                    {{testimonialHeader.headline}}
+                </div>
+                <div class="text-xl mb-8 text-gray-700">
+                    {{testimonialHeader.subheader}}
+                </div>
+                <form action="">
+                    <input type="text" :placeholder="website.ctaPlaceholder" class="border rounded px-2 py-1 placeholder-gray-700 font-light">
+                    <button type="submit.prevent" class="bg-red-600 hover:bg-red-700 text-red-100 font-medium hover:text-gray-100 border border-red-700 rounded px-3 py-1">
+                        {{website.cta}}
+                    </button>
+                </form>
+            </div>
             
             <!-- testimonials section -->
             <div class="grid md:grid-cols-3 gap-4 mx-auto">
