@@ -123,10 +123,10 @@
             </div>
 
             <!-- company usecases breakdown -->
-            <div v-for="usecase in companyUsecasesBreakdown" class="my-32 max-w-screen-lg px-12 mx-auto">
+            <div v-for="(usecase,index) in companyUsecasesBreakdown" class="my-32 max-w-screen-lg px-12 mx-auto">
                 <div class="flex items-center gap-8">
                     <div class="text-6xl font-black pt-10">
-                        1
+                        {{ index + 1}}
                     </div>
                     <div class="pt-10">
                         <div class="text-3xl font-bold">
