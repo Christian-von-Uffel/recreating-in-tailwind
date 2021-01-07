@@ -189,27 +189,33 @@
                     <div class="text-4xl font-bold">
                         {{teamFeaturesHeader.headline}}
                     </div>
-                    <div class="text-xl font-light text-gray-700">
+                    <div class="text-xl font-light text-gray-700 mb-4">
                         {{teamFeaturesHeader.subheader}}
                     </div>
+                    <form action="">
+                        <input type="text" :placeholder="website.ctaPlaceholder" class="border rounded px-2 py-1 placeholder-gray-700 font-light">
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-red-100 font-medium hover:text-gray-100 antialiased border border-red-700 rounded px-3 py-1">
+                            {{website.cta}}
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- team features -->
+                <div class="grid grid-cols-2 gap-12 max-w-screen-lg px-12 mt-8 mx-auto">
+                    <div v-for="teamFeature in teamFeatures">
+                        <div class="rounded shadow overflow-hidden mb-4">
+                            <img :src="teamFeature.image" alt="" class="bg-gray-200">
+                        </div>
+                        <div class="text-2xl font-bold mb-2">
+                            {{teamFeature.headline}}
+                        </div>
+                        <div class="text-lg font-light text-gray-700">
+                            {{teamFeature.subheader}}
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- team features -->
-            <div class="grid grid-cols-2 gap-8">
-                <div v-for="teamFeature in teamFeatures">
-                    <div class="rounded shadow overflow-hidden mb-4">
-                        <img :src="teamFeature.image" alt="">
-                    </div>
-                    <div class="text-4xl font-bold mb-2">
-                        {{teamFeature.headline}}
-                    </div>
-                    <div class="text-xl font-light text-gray-700">
-                        {{teamFeature.subheader}}
-                    </div>
-                </div>
-            </div>
-
+                
             
         <!-- main content wrapper -->
         </div>
@@ -389,9 +395,24 @@
             },
             teamFeatures:[
                 {
-                    image: "",
-                    headline: "",
-                    subheader: "",
+                    image: "images/notion/collaborate.png",
+                    headline: "Collaborate in real time",
+                    subheader: "Comment anywhere to start a discussion. Mention your coworkers when you need input.",
+                },
+                {
+                    image: "images/notion/invite.gif",
+                    headline: "Invite & share",
+                    subheader: "Work solo, invite a single teammate, or share documents with your entire company.",
+                },
+                {
+                    image: "images/notion/missing-half-of-slack.png",
+                    headline: "The missing half of Slack",
+                    subheader: "Too many insights getting lost in Slack? Notion is your team’s long term memory.",
+                },
+                {
+                    image: "images/notion/embed-your-current-tools.png",
+                    headline: "Embed your current tools",
+                    subheader: "Embed 500+ other apps inside Notion pages. Create a hub for everything your team is working on.",
                 },
             ],
         },
