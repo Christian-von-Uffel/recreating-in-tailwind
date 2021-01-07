@@ -246,6 +246,20 @@
                     </div>
                 </div>
             </div>
+
+            <!-- personal features section -->
+            <div class="mx-auto my-32">
+                <img :src="personalFeaturesHeader.image" :alt="personalFeaturesHeader.headline" class="h-56 mx-auto object-contain">
+                <div class="text-center">
+                    <div class="text-4xl font-bold">
+                        {{personalFeaturesHeader.headline}}
+                    </div>
+                    <div class="text-xl font-light text-gray-700 mb-4">
+                        {{personalFeaturesHeader.subheader}}
+                    </div>
+                    <button class="rounded px-3 py-2 shadow bg-red-100 hover:bg-red-200 border border-red-300 text-red-500 font-medium text-sm">{{personalFeaturesHeader.cta}}</button>
+                </div>
+            </div>
                 
             
         <!-- main content wrapper -->
