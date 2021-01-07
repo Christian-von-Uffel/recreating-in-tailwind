@@ -215,6 +215,37 @@
                     </div>
                 </div>
             </div>
+
+            <!-- product downloads section -->
+            <div class="max-w-screen-lg my-32 mx-auto">
+                <div class="text-center">
+                    <div class="text-4xl font-bold">
+                        {{productDownloadsHeader.headline}}
+                    </div>
+                    <div class="text-xl font-light text-gray-700 mb-16">
+                        {{productDownloadsHeader.subheader}}
+                    </div>
+                </div>
+                <div class="bg-gray-200 rounded-lg">
+                    <div class="grid grid-cols-2 gap-12 px-24 py-12">
+                        <div v-for="productDownload in productDownloads">
+                            <div class="text-2xl font-bold mb-4">
+                                {{productDownload.headline}}
+                            </div>
+                            <img :src="productDownload.image" :alt="website.title + ' ' + productDownload.headline" class="rounded shadow overflow-hidden h-64">
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold">
+                                {{productDownloadsHeader.headline}}
+                            </div>
+                            <div class="flex gap-4">
+                                <button class="rounded px-3 py-2 shadow bg-red-100 hover:bg-red-200 border border-red-300 text-red-500 font-medium text-sm">Mac</button>
+                                <button class="rounded px-3 py-2 shadow bg-red-100 hover:bg-red-200 border border-red-300 text-red-500 font-medium text-sm">Windows</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 
             
         <!-- main content wrapper -->
