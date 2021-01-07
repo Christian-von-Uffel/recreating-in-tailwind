@@ -4,6 +4,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Notion's Website Recreated Using Tailwind CSS</title>
 </head>
 <body>
@@ -26,11 +27,19 @@
                 <div class="text-gray-400 font-light">
                     |
                 </div>
-                <div>
+                <a href="#" class="rounded-sm py-1 px-2 hover:bg-gray-200">
                     Log in
-                </div>
-                <div>
+                </a>
+                <a v-if="!stickySignupVisible" href="#" class="rounded-sm py-1 px-2 hover:bg-gray-200">
                     Sign up
+                </a>
+                <div v-if="stickySignupVisible">
+                    <form action="">
+                        <input type="text" :placeholder="website.ctaPlaceholder" class="border rounded px-2 py-1 placeholder-gray-700 font-light">
+                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-red-100 font-medium hover:text-gray-100 antialiased border border-red-700 rounded px-3 py-1">
+                            {{website.cta}}
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -86,7 +95,7 @@
                         {{companyUsecaseHeader.subheader}}
                     </div>
                 </div>
-                <div class="grid grid-cols-3 gap-6 my-16 text-center">
+                <div class="grid grid-cols-3 gap-4 mx-16 my-16 text-center">
                     <div v-for="companyUsecase in companyUsecases">
                         <div class="bg-white">
                             <img :src="companyUsecase.artwork" :alt="companyUsecase.title" class="h-32 object-cover m-auto p-3">
@@ -101,13 +110,52 @@
                 </div>
             </div>
 
+            <!-- company usecases breakdown header -->
+            <div class="my-32">
+                <div class="text-center tracking-wide my-8">
+                    <div class="text-4xl font-bold">
+                        {{usecasesBreakdownHeader.headline}}
+                    </div>
+                    <div class="text-xl font-light text-gray-700">
+                        {{usecasesBreakdownHeader.subheader}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- company usecases breakdown -->
+            <div v-for="usecase in companyUsecasesBreakdown" class="my-32 max-w-screen-lg px-12 mx-auto">
+                <div class="flex items-center gap-8">
+                    <div class="text-6xl font-black pt-10">
+                        1
+                    </div>
+                    <div class="pt-10">
+                        <div class="text-3xl font-bold">
+                            {{usecase.usecaseType}}
+                        </div>
+                        <div class="text-lg font-light text-gray-700">
+                            {{usecase.userGoal}}
+                        </div>
+                    </div>
+                    <img :src="usecase.animationImage" :alt="usecase.usecaseType" class="h-48 object-contain">
+                    <div class="pt-20">
+                        <div class="text-gray-600 antialiased mb-2">
+                            Replaces
+                        </div>
+                        <img :src="usecase.productReplacesImage" :alt="usecase.usecaseType" class="h-8 object-contain">
+                    </div>
+                </div>
+                <div class="rounded-lg border border-gray-200 shadow overflow-hidden">
+                    <video :src="usecase.video" autoplay loop></video>
+                </div>
+            </div>
+
             <!-- testimonial header section -->
             <img :src="testimonialHeader.image" :alt="testimonialHeader.image" class="max-w-xl mx-auto object-contain">
             <div class="text-center">
                 <div class="text-4xl mt-6 mb-2 font-bold">
                     {{testimonialHeader.headline}}
                 </div>
-                <div class="text-xl mb-8 text-gray-700">
+                <div class="text-xl mb-6 text-gray-700">
                     {{testimonialHeader.subheader}}
                 </div>
                 <form action="">
@@ -133,10 +181,40 @@
                     </div>
                 </a>
             </div>
+
+            <!-- team features header -->
+            <div class="mx-auto my-32">
+                <img :src="teamFeaturesHeader.animationImage" :alt="teamFeaturesHeader.headline" class="h-56 mx-auto object-contain">
+                <div class="text-center">
+                    <div class="text-4xl font-bold">
+                        {{teamFeaturesHeader.headline}}
+                    </div>
+                    <div class="text-xl font-light text-gray-700">
+                        {{teamFeaturesHeader.subheader}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- team features -->
+            <div class="grid grid-cols-2 gap-8">
+                <div v-for="teamFeature in teamFeatures">
+                    <div class="rounded shadow overflow-hidden mb-4">
+                        <img :src="teamFeature.image" alt="">
+                    </div>
+                    <div class="text-4xl font-bold mb-2">
+                        {{teamFeature.headline}}
+                    </div>
+                    <div class="text-xl font-light text-gray-700">
+                        {{teamFeature.subheader}}
+                    </div>
+                </div>
+            </div>
+
             
+        <!-- main content wrapper -->
         </div>
 
-    <!-- content wrapper -->
+    <!-- vue js app wrapper -->
     </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -252,6 +330,33 @@
                     ],
                 },
             ],
+            usecasesBreakdownHeader:{
+                headline: "And connect the whole company", 
+                subheader: "No more context switching or silos.", 
+            },
+            companyUsecasesBreakdown:[
+                {
+                    usecaseType: "Team wiki",
+                    userGoal: "Turn your tribal knowledge into easy-to-find answers.",
+                    animationImage: "images/notion/use-case-wiki.png",
+                    productReplacesImage: "images/notion/wikis.png",
+                    video: "images/notion/team-wiki.mp4",
+                },
+                {
+                    usecaseType: "Projects & tasks",
+                    userGoal: "Kanban boards, tables, lists, and more. Customize any workflow.",
+                    animationImage: "images/notion/use-case-database.png",
+                    productReplacesImage: "images/notion/tasks.png",
+                    video: "images/notion/projects-and-tasks.mp4",
+                },
+                {
+                    usecaseType: "Notes & docs",
+                    userGoal: "Systems that keep notes organized. Add any type of content.",
+                    animationImage: "images/notion/use-case-note.png",
+                    productReplacesImage: "images/notion/notes.png",
+                    video: "images/notion/notes-and-docs.mp4",
+                },
+            ],
             testimonialHeader:{
                 image:"images/notion/templates.png",
                 headline:"Trusted by teams of 20 to 2,000",
@@ -276,8 +381,25 @@
                     source:"Justin Goff",
                     sourceTitle:"product manager, duolingo",
                 },
-            ]
+            ],
+            teamFeaturesHeader:{
+                animationImage: "images/notion/team-features-illustration.png",
+                headline: "Bring clarity to your team",
+                subheader: "With one tool, everyone sees the whole picture.",
+            },
+            teamFeatures:[
+                {
+                    image: "",
+                    headline: "",
+                    subheader: "",
+                },
+            ],
         },
+        computed:{
+            stickySignupVisible(){
+                return(window.scrollY > 25 ? true : false)
+            }
+        }
     })
 </script>
 </html>
