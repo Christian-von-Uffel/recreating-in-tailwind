@@ -95,16 +95,16 @@
                         {{companyUsecaseHeader.subheader}}
                     </div>
                 </div>
-                <div class="grid grid-cols-3 gap-4 mx-16 my-16 text-center">
+                <div class="grid grid-cols-3 gap-12 mx-20 my-16 text-center">
                     <div v-for="companyUsecase in companyUsecases">
                         <div class="bg-white">
                             <img :src="companyUsecase.artwork" :alt="companyUsecase.title" class="h-32 object-cover m-auto p-3">
                         </div>
-                        <div class="font-bold text-xl">
+                        <div class="font-bold text-xl mb-2">
                             {{companyUsecase.title}}
                         </div>
-                        <div v-for="usecase in companyUsecase">
-                            
+                        <div v-for="usergoal in companyUsecase.usergoals" class="text-lg text-gray-700 font-light">
+                            {{usergoal}}
                         </div>
                     </div>
                 </div>
