@@ -269,7 +269,34 @@
             <div class="my-32 mx-8 max-w-screen-xl">
                 <img :src="tweetTestimonial.image" alt="" class="pointer-events-none">
             </div>
-                
+
+            <!-- footer section -->
+            <div class="my-32 mx-16 flex justify-between">
+                <div class="w-64">
+                    <div class="flex gap-3 items-center mb-4">
+                        <img :src="website.logo" :alt="website.title" class="h-8 w-8">
+                        <div class="font-medium">
+                            {{website.title}}
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-700 mt-2">
+                        The all-in-one workspace for your notes, tasks, wikis, and databases.
+                    </div>
+                    <div class="text-sm text-gray-700 mt-2">
+                        © 2021 Notion Labs, Inc.
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-8 text-sm">
+                    <div v-for="footerColumn in footerColumns">
+                        <div class="capitalize font-semibold px-2 mb-3">
+                            {{footerColumn.title}}
+                        </div>
+                        <a href="#" v-for="link in footerColumn.links" class="block rounded hover:bg-gray-200 px-2 py-1">
+                            {{link}}
+                        </a>
+                    </div>
+                </div>
+            </div>
             
         <!-- main content wrapper -->
         </div>
@@ -492,6 +519,61 @@
             tweetTestimonial:{
                 image: "images/notion/tweets-v2.png"
             },
+            footerColumns:[
+                {
+                    title: "links",
+                    links:[
+                        "Desktop apps",
+                        "Mobile apps",
+                        "Web clipper",
+                        "Customers",
+                        "What's new",
+                        "Log in",
+                        "Sign up",
+                    ]
+                },
+                {
+                    title: "product",
+                    links:[
+                        "Overview",
+                        "Pricing",
+                        "Templates",
+                        "Personal use",
+                        "Notion for teams",
+                        "Enterprise",
+                        "Remote work",
+                        "Start ups",
+                        "Students",
+                        "Educators",
+                        "Switch from Evernote",
+                        "Switch from confluence",
+                        "API private beta",
+                    ]
+                },
+                {
+                    title: "company",
+                    links:[
+                        "About",
+                        "Careers",
+                        "Media kit",
+                        "Tools and craft",
+                        "Community",
+                    ]
+                },
+                {
+                    title: "help & support",
+                    links:[
+                        "Help and support",
+                        "Guides and tutorials",
+                        "Notion for teams",
+                        "Twitter @notion HQ",
+                        "Status",
+                        "Contact sales",
+                        "Send us a message",
+                        "Email us",
+                    ]
+                },
+            ]
         },
         computed:{
             stickySignupVisible(){
