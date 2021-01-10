@@ -235,9 +235,14 @@
                             <img :src="productDownload.image" :alt="website.title + ' ' + productDownload.headline" class="rounded shadow overflow-hidden h-64">
                         </div>
                         <div>
-                            <div class="text-2xl font-bold">
-                                {{productDownloadsHeader.headline}}
-                            </div>
+                            <form action="">
+                                <input type="text" :placeholder="website.ctaPlaceholder" class="bg-white border rounded px-3 py-2 placeholder-gray-700 text-sm">
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-red-100 text-sm font-bold hover:text-gray-100 antialiased border border-red-700 rounded px-3 py-2">
+                                    {{website.cta}}
+                                </button>
+                            </form>
+                        </div>
+                        <div>
                             <div class="flex gap-4">
                                 <button class="rounded px-3 py-2 shadow bg-red-100 hover:bg-red-200 border border-red-300 text-red-500 font-medium text-sm">Mac</button>
                                 <button class="rounded px-3 py-2 shadow bg-red-100 hover:bg-red-200 border border-red-300 text-red-500 font-medium text-sm">Windows</button>
