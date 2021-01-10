@@ -265,6 +265,10 @@
                     <button class="rounded px-3 py-2 shadow bg-red-100 hover:bg-red-200 border border-red-300 text-red-500 font-medium text-sm">{{personalFeaturesHeader.cta}}</button>
                 </div>
             </div>
+            <!-- tweet testimonial section -->
+            <div class="my-32 mx-8 max-w-screen-xl">
+                <img :src="tweetTestimonial.image" alt="" class="pointer-events-none">
+            </div>
                 
             
         <!-- main content wrapper -->
@@ -484,7 +488,10 @@
                 headline: "Free for personal use",
                 subheader: "Write better. Think more clearly. Get organized.",
                 cta: "Explore our free Personal Plan",
-            }
+            },
+            tweetTestimonial:{
+                image: "images/notion/tweets-v2.png"
+            },
         },
         computed:{
             stickySignupVisible(){
